@@ -32,7 +32,7 @@ public class AccountTypeDto {
     {
         this.setAccountName(accountType.getAccountTypeName());
         this.setCreationDate(accountType.getCreation_Date());
-        this.setMnemonic(accountType.getMnemonic());
+
     }
 
     public void setMnemonic(String mnemonic) {

@@ -9,7 +9,7 @@ public class GeneralResponse<T> implements Serializable {
     private final boolean successful;
     private final transient T payload;
 
-    public GeneralResponse(boolean successful,  payload)
+    public GeneralResponse(boolean successful, T payload)
     {
         this.successful =successful;
         this.payload = payload;

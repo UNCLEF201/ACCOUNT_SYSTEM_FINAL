@@ -47,11 +47,6 @@ public String getAccountTypeName(){return AccountTypeName;}
 @Column(name = "creation_Date")
 public LocalDate getCreation_Date(){return  Date_created;}
 
-@OneToMany(targetEntity = AccountTransaction.class, fetch = FetchType.LAZY,mappedBy = "accountTypeID", orphanRemoval = true,cascade = CascadeType.PERSIST)
-public Set<AccountTransaction>getAccountTransaction()
-{
-   return AccountTransaction;
-}
 
 public void setAccountTypeID(long accountTypeID)
 {
@@ -97,7 +92,7 @@ public String toString()
     return "AccountType{" +
             "accountTypeID ='"+ accountTypeID + '\''+
             ",AccountTypeName='"+ AccountTypeName + '\'' +
-            ", creation_Date=" + Date_created +
+            ", Date_Created=" + Date_created +
             '}';
 }
 

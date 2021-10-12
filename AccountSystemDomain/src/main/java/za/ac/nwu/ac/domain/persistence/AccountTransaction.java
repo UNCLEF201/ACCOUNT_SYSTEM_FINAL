@@ -6,16 +6,15 @@ import java.time.LocalDate;
 import java.util.Objects;
 
 @Entity
-@Table(name = "Account_Trans", schema = "BATMAN")
+@Table(name = "Account_transact")
 public class AccountTransaction implements Serializable
 {
-    private static final long serialVersionUID =  -1420294317019175746L;
 
-    private Long transactionID;
-    private Long accountTypeID;
-    private Long membershipID;
+    private Long transaction_ID;
+    private Long membership_ID;
+    private Long accountType_ID;
     private Long amount;
-    private LocalDate transDate;
+    private LocalDate transact_date;
 
     public AccountTransaction()
     {
@@ -23,69 +22,69 @@ public class AccountTransaction implements Serializable
     }
 
     public AccountTransaction(long transactionID,long accountTypeID,long membershipID, long amount,LocalDate transDate) {
-        this.transactionID = transactionID;
-        this.accountTypeID = accountTypeID;
-        this.membershipID = membershipID;
+        this.transaction_ID = transactionID;
+        this.accountType_ID = accountTypeID;
+        this.membership_ID = membershipID;
         this.amount = amount;
-        this.transDate = transDate;
+        this.transact_date = transDate;
 
     }
 
     @Id
     @SequenceGenerator(name = "AccountSystem_Seq", sequenceName = "AccountSystem.AccountSystem_SEQ",allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "AccountSystem_SEQ")
-    @Column(name = "transactionID")
-    public Long getTransactionID()
+    @Column(name = "transaction_ID")
+    public Long getTransaction_ID()
     {
-        return transactionID;
+        return transaction_ID;
     }
 
-    @Column(name ="accountTypeID")
-    public Long getAccountTypeID()
+    @Column(name ="accountType_ID")
+    public Long getAccountType_ID()
     {
-        return accountTypeID;
+        return accountType_ID;
     }
 
-    @Column(name = "membershipID")
-    public Long getMembershipID()
+    @Column(name = "membership_ID")
+    public Long getMembership_ID()
     {
-        return membershipID;
+        return membership_ID;
     }
     @Column(name ="amount")
     public Long getAmount()
     {
         return amount;
     }
-    @Column(name = "transDate")
-    public LocalDate getTransDate()
+    @Column(name = "transact_Date")
+    public LocalDate getTransact_date()
     {
-        return transDate;
+        return transact_date;
     }
 
-    @ManyToOne(fetch = FetchType.LAZY)
+
     @JoinColumn(name = "accountTypeID")
-    public long getAccountId() {return accountTypeID;}
+    public long getAccountId() {return accountType_ID;}
 
-    public void setTransactionID(long transactionID)
+    public void setTransaction_ID(long transaction_ID)
     {
-        this.transactionID = transactionID ;
+        this.transaction_ID = transaction_ID;
     }
-    public void setMembershipID(long membershipID)
+    public void setMembership_ID(long membership_ID)
     {
-        this.membershipID = membershipID;
+        this.membership_ID = membership_ID;
     }
-    public void setAccountTypeID(long accountTypeID)
+    public void setAccountType_ID(long accountType_ID)
     {
-        this.accountTypeID = accountTypeID;
+        this.accountType_ID = accountType_ID;
     }
     public void setAmount(long amount)
     {
         this.amount =amount;
     }
 
-    public void setTransDate(LocalDate transDate)
+    public void setTransact_date(LocalDate transact_date)
     {
-        this.transDate = transDate;
+        this.transact_date = transact_date;
     }
 
     @Override
@@ -101,18 +100,18 @@ public class AccountTransaction implements Serializable
 
         }
         AccountTransaction that = (AccountTransaction) o;
-        return Objects.equals(transactionID,that.transactionID) && Objects.equals(accountTypeID, that.accountTypeID) && Objects.equals(membershipID, that.membershipID )&& Objects.equals(amount, that.amount)&& Objects.equals(transDate, that.transDate);
+        return Objects.equals(transaction_ID,that.transaction_ID) && Objects.equals(accountType_ID, that.accountType_ID) && Objects.equals(membership_ID, that.membership_ID)&& Objects.equals(amount, that.amount)&& Objects.equals(transact_date, that.transact_date);
     }
 
     @Override
     public String toString()
     {
         return "AccountTransaction{" +
-                "accountTypeID ='"+ accountTypeID + '\''+
-                "transactionID='" + transactionID + '\'' +
-                ",membershipID='"+ membershipID + '\'' +
+                "accountTypeID ='"+ accountType_ID + '\''+
+                "transactionID='" + transaction_ID + '\'' +
+                ",membershipID='"+ membership_ID + '\'' +
                 ", amount=" + amount +'\''+
-                ",transDate=+" + transDate +
+                ",transact_Date=+" + transact_date +
                 '}';
     }
 
